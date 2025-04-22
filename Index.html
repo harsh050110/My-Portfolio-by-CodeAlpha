@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #c9ad7d;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header, section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header {
+      background: linear-gradient(to right, #bea26f, #9e6bdf);
+      color: white;
+      animation: fadeIn 2s ease-out forwards;
+    }
+ 
+    .about, .projects, .contact {
+      background: white;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+    }
+
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card {
+      margin: 20px;
+      padding: 20px;
+      background: #e0f7fa;
+      border-radius: 8px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const elements = document.querySelectorAll(".about, .projects, .contact");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      elements.forEach(el => observer.observe(el));
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Hi, I'm Harsh Kumar 👋</h1>
+    <img src="Users/Image profile.jpg" alt="Profile Picture" class="profile-img" />
+    <p>Frontend Developer | Designer | Content Creator</p>
+  </header>
+  <style>
+     .profile-img {
+      max-width: 200px; /* Controls max size */
+      width: 50%;       /* Responsive width */
+      margin: 40px auto;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .profile-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+ 
+  <section class="about">
+    <h2>ABOUT ME</h2>
+    <p>
+      Hi, I'm Harsh Kumar
+I'm a curious and creative tech enthusiast passionate about building intuitive user interfaces and uncovering insights through data. With hands-on experience in frontend development (HTML, CSS, JavaScript, React) and data analysis (Python, Excel, SQL), I enjoy blending logic with creativity.
+
+Beyond code, I'm a visual storyteller—designing eye-catching thumbnails, posters, and digital content that engage and inspire. I love learning, experimenting, and bringing ideas to life, whether it’s through websites, data dashboards, or creative visuals.
+
+    </p>
+  </section>
+
+  <section class="projects">
+    <h2>PROJECT</h2>
+    <div class="project-card">
+      <h3>Project 1 - Image Gallery</h3>
+      <p>I've build an image gallery with animation from using HTML,CSS & JavaScript. I've used image from another sites.</p>
+    </div>
+    <div class="project-card">
+      <h3>Project 2 - Calculator </h3>
+      <p>I've build calaculator using HTML, CSS & JavaScript. Calculator is mainly used addition , Subtraction & Multiplication.</p>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact</h2>
+    <p>Email: harshkumar011045@gmail.com</p>
+   <a href="https://www.linkedin.com/in/harsh-kumar-98440a304">Check My LinkedIn</a>
+  <p><a href="https://youtube.com/@harshsharma0110?si=pB0jAir89MRF3sKJ">Visit My Youtube Channel</a></p>
+  </section>
+
+
+<button class="contact-button">Contact Me</button>
+
+</body>
+</html>
